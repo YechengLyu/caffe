@@ -452,7 +452,9 @@ message LossParameter {
   // Deprecated.  Ignored if normalization is specified.  If normalization
   // is not specified, then setting this to false will be equivalent to
   // normalization = BATCH_SIZE to be consistent with previous behavior.
-  optional bool normalize = 2;
+  optional bool normalize = 2 [default = false];
+  optional bool weight_by_label_freqs = 3 [default = false];
+  repeated float class_weighting = 4;
 }
 
 // Messages that store parameters used by individual layer types follow, in
