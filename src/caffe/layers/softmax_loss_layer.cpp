@@ -34,6 +34,7 @@ void SoftmaxWithLossLayer<Dtype>::LayerSetUp(
     normalization_ = this->layer_param_.loss_param().normalization();
   }
   normalize_ = this->layer_param_.loss_param().normalize();
+  weight_by_label_freqs_ = this->layer_param_.loss_param().weight_by_label_freqs();
   if (weight_by_label_freqs_) {
     vector<int> count_shape(1, this->layer_param_.loss_param().class_weighting_size());
     label_counts_.Reshape(count_shape);
